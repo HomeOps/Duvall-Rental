@@ -1,1 +1,18 @@
-[]
+- id: '1650573032158'
+  alias: Reboot every Sunday
+  description: ''
+  trigger:
+  - platform: time
+    at: 04:45:00
+  condition:
+  - condition: time
+    before: 00:00:00
+    weekday:
+    - sun
+  action:
+  - service: notify.mobile_app_oscar_pixel_6_pro
+    data:
+      message: Reboot Duvall Rental
+  - service: hassio.host_reboot
+    data: {}
+  mode: single
